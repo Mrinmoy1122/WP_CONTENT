@@ -11,25 +11,24 @@ add_action('init', function () {
     ]);
 });
 
-// Load admin files only in admin area
+// Only load meta box code in admin
 if (is_admin()) {
-
-    // Include meta box UI
+    // Include the meta box UI file where the function is defined
     require_once TRAINER_PLUGIN_PATH . 'includes/admin/trainer-availability-metabox-ui.php';
 
-    // Add meta box
+    // Add the meta box
     add_action('add_meta_boxes', function () {
         add_meta_box(
             'trainer_availability_box',
             'Trainer Availability',
-            'render_trainer_availability_metabox', // function now exists
+            'render_trainer_availability_metabox',
             'trainer_availability',
             'normal',
             'default'
         );
     });
-
-    // Include save handler
-    require_once TRAINER_PLUGIN_PATH . 'includes/admin/trainer-availability-save.php';
-    add_action('save_post_trainer_availability', 'save_trainer_availability_data');
 }
+
+// Include the save handler
+require_once TRAINER_PLUGIN_PATH . 'includes/admin/trainer-availability-save.php';
+add_action('save_post_trainer_availability', 'save_trainer_availability_data');
