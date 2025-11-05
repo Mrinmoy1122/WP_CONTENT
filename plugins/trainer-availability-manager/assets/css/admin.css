@@ -1,0 +1,13 @@
+.day-block {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+.day-block h3 {
+    margin-top: 0;
+}
+.slot input[type="time"] {
+    margin: 0 5px;
+}
